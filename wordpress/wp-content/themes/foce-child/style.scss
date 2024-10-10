@@ -672,6 +672,9 @@ footer.desactive{
       }
     }
   }
+  h2 {
+    font-size: 2.5rem;
+  }
   #menu ul li:nth-child(1)::before {
     right: 15rem;
     bottom: -6rem;
@@ -702,7 +705,8 @@ footer.desactive{
     content: url('./assets/images/Sunflower.png');
     z-index: 2;
     left: 42px;
-    opacity: 0.25;
+    top: 280px;
+    opacity: 0.95;
   }
   .story__article {
     z-index: 0;
@@ -721,6 +725,10 @@ footer.desactive{
     left: 550px;
     opacity: 0.25;
   }
+  h3 {
+    font-size: 2.5rem;
+    margin-top: 100px;
+  }
   #place {
     height: 300px;
   }
@@ -730,33 +738,26 @@ footer.desactive{
   .story__place--clouds {
     height: 300px;
   }
-  .story #place h3 {
-    font-size: 1.5rem;
-    margin-bottom: 6rem;
-  }
   .story__article {
     width: 500px;
-  }
-  .story #place > div p {
-    margin-left: 15rem;
-    margin-top: -10rem;
-    margin-bottom: 22rem;
-    width: 50%;
   }
   p:not(.nomination__bloc) {
     font-size: 0.75rem;
   }
   .mySwiper .swiper-slide {
-    width: 33%;
+    width: 400px !important;
     height: auto;
   }
   #studio h2::before {
     left: -7.75rem;
   }
+  #studio h2::after {
+    content: url('./assets/images/flower.png');
+  }
   #studio > div::before {
     z-index: -1;
     opacity: 0.5;
-    top: 20%;
+    top: 25%;
   }
   .nomination__bloc::before  {
     background-size: 80%;
