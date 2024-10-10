@@ -875,3 +875,36 @@ footer.desactive{
     flex-direction: column;
   }
 }
+@media (max-width: 321px) {
+  .main-navigation #menu li{
+    font-size: 2rem;
+  }
+  #menu ul li:nth-child(1)::before {
+    display: none;
+  }
+  #menu ul li:nth-child(4)::after {
+    display: none;
+  }
+  .main-navigation .navigation-burger .site-title {
+    padding-left: 10px;
+  }
+  h2 {
+    font-size: 1.8rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  .story__characters--title {
+    background-size: 70%;
+    margin-top: 8rem;
+  }
+  .story h2::after {
+    opacity: 0.10;
+  }
+  .story #place h3 {
+    margin-left: 8rem;
+  }
+  #studio h2::after {
+    display: none;
+  }
+}
