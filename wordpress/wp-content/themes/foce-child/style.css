@@ -1,0 +1,788 @@
+@charset "UTF-8";
+/*
+ Theme Name:  Fleurs d'orangers et chats errants - Oscars Short
+ Theme URI: https://www.koukaki.local
+ Author: Studio Koukaki
+ Author URI: https://www.koukaki.local
+ Template: foce
+ Description: Thème enfant à l'ocasion de la nomination aux Oscars Shorts
+ Version: 0.1
+ */
+/* -- Variables pour DRY -- */
+/* -- MIXIN -- */
+/* -- Mixin pour les animations fade -- */
+/* -- Mixin pour l'animation float -- */
+/* -- SCSS -- */
+/* -- Section BANNER -- */
+.banner {
+  position: relative;
+  width: 100% !important;
+  height: 806px;
+  animation: fadeInDown 2s ease 0s forwards;
+}
+.banner__video {
+  position: absolute;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: 1;
+  opacity: 0;
+  bottom: 0;
+  left: 0;
+  width: 100% !important;
+  height: 806px;
+  animation: fadeInVideo 0ms ease 2.8s forwards;
+}
+.banner__logo {
+  position: sticky;
+  top: 80px;
+  z-index: 10;
+  opacity: 1;
+  animation: fadeInUp 2s ease 0s forwards;
+  animation: float 6s 2s infinite ease-in-out;
+}
+
+/* -- Section STORY - STUDIO - FOOTER -- */
+.story,
+#studio,
+.site-footer {
+  z-index: 2;
+  animation: fadeInUp 2s ease 0s forwards;
+}
+
+/* -- ANNULATION -- */
+p {
+  animation: none;
+}
+p:not(.nomination__bloc) {
+  animation: fadeInDown 1.8s ease 0s forwards;
+}
+
+/* -- Section STUDIO -- */
+#studio {
+  overflow: hidden;
+}
+#studio > div::before {
+  content: "";
+  background-image: url("./assets/images/trple-leaf.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 34.45px;
+  height: 144px;
+  top: 200px;
+}
+
+/* -- Section STORY -- */
+.story__article {
+  width: 687px;
+  height: 258px;
+  padding-bottom: none;
+}
+
+.story #place h3 {
+  margin-left: 4rem;
+}
+
+.story #place > div p {
+  width: 27.9375rem;
+  padding-left: 0;
+  margin-top: 2.31rem;
+  margin-left: 10rem;
+}
+
+/* -- ANIMATIONS -- */
+@keyframes fadeInVideo {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(200px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-200px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes float {
+  0%, 100% {
+    transform: translate3d(6px, 6px, 0);
+  }
+  12% {
+    transform: translate3d(0px, 6px, 0);
+  }
+  24% {
+    transform: translate3d(6px, -4px, 0);
+  }
+  36% {
+    transform: translate3d(6px, 0px, 0);
+  }
+  48% {
+    transform: translate3d(-4px, -6px, 0);
+  }
+  60% {
+    transform: translate3d(0px, -4px, 0);
+  }
+  72% {
+    transform: translate3d(-8px, 6px, 0);
+  }
+  84% {
+    transform: translate3d(-4px, 0px, 0);
+  }
+}
+/* -- CSS Fleurs + Animation -- */
+.story h2::after {
+  animation: rotate 5s linear infinite;
+  transform-origin: 50% 77px;
+}
+
+.story__article::after {
+  animation: rotate 5s linear infinite;
+  transform-origin: 50% 94px;
+}
+
+#studio h2::before {
+  animation: rotate 5s linear infinite;
+  transform-origin: 50% 99.5px;
+}
+
+#studio h2::after {
+  animation: rotate 5s linear infinite;
+  transform-origin: 50% 54.5px;
+}
+
+.site-footer::before {
+  animation: rotate 5s linear infinite;
+  transform-origin: 50% 77px;
+}
+
+.site-footer::after {
+  animation: rotate 5s linear infinite;
+  transform-origin: 50% 84.5px;
+}
+
+.site-footer ul::after {
+  animation: rotate 5s linear infinite;
+  transform-origin: 50% 323px;
+}
+
+.nomination::before {
+  animation: rotate 5s linear infinite;
+  transform-origin: 50% 50%;
+}
+
+.nomination::after {
+  animation: rotate 5s linear infinite;
+  transform-origin: 50% 84.5px;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+/* -- Animation titres -- */
+.story__title span,
+.story__characters--title span,
+.story__place--title span,
+.studio__title span,
+.nomination__bloc span {
+  position: relative;
+  display: inline-block;
+  opacity: 0;
+}
+
+.story__title span.visible,
+.story__characters--title span.visible,
+.story__place--title span.visible,
+.studio__title span.visible,
+.nomination__bloc span.visible {
+  animation: showTittle 1s forwards;
+}
+
+/* -- Animation avec délai pour chaque span -- */
+.story__title span:nth-child(1),
+.story__characters--title span:nth-child(1),
+.story__place--title span:nth-child(1),
+.studio__title span:nth-child(1),
+.nomination__bloc span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.story__title span:nth-child(2),
+.story__characters--title span:nth-child(2),
+.story__place--title span:nth-child(2),
+.studio__title span:nth-child(2),
+.nomination__bloc span:nth-child(2) {
+  animation-delay: 0.5s;
+}
+
+@keyframes showTittle {
+  0% {
+    transform: translateY(83px);
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+/* -- SCSS page-oscar -- */
+.nomination {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1440px;
+  height: 380px;
+  padding-top: 13.69rem;
+  margin-bottom: 7.87rem;
+}
+
+.nomination__bloc {
+  position: relative;
+  color: #FFF5E9;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-family: Quicksand;
+  font-size: 42px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: -0.84px;
+  padding: 35px;
+  z-index: 1;
+}
+
+.nomination__bloc::before {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: -100px;
+  right: -100px;
+  bottom: -50px;
+  background-image: url("./assets/images/oscars-orange-bg.png");
+  background-repeat: no-repeat;
+  background-size: 90%;
+  background-position: center;
+  z-index: -1;
+}
+
+/* -- Ajout des fleurs au template temporaire -- */
+.nomination::before {
+  content: "";
+  z-index: 2;
+  background-image: url("./assets/images/Sunflower.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 216px;
+  height: 216px;
+  position: absolute;
+  left: 6.38rem;
+  top: 1rem;
+}
+
+.nomination::after {
+  content: url("./assets/images/orchid.png");
+  position: absolute;
+  right: -4em;
+  top: -3em;
+}
+
+/* -- Suppression des fleurs quand template temporaire -- */
+.site-footer::before {
+  content: "";
+}
+
+.site-footer::after {
+  content: "";
+}
+
+/* -- SWIPPERJS -- */
+.swiper {
+  width: 100%;
+  padding-top: 50px;
+  margin-bottom: 5.38rem;
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 300px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+
+.swiper-slide p {
+  text-align: center;
+}
+
+.story #characters {
+  justify-content: flex-start;
+  width: 100%;
+}
+
+.story #characters div {
+  flex: none;
+  padding-left: 84px;
+}
+
+.mySwiper .swiper-slide img {
+  width: 400px;
+  height: 440px;
+}
+
+/* -- Personnalisation section #place pour implantation nuages -- */
+/* -- Retirer le background-image actuel pour mettre img sans nuages -- */
+.story #place {
+  background-image: url("./assets/images/Studio_Koukaki-image_place.png");
+  background-repeat: no-repeat;
+}
+
+/* -- Personnalisation placement et apparence des nuages -- */
+#place {
+  width: 100%;
+}
+#place .story__place--clouds {
+  position: relative;
+  filter: blur(16.5px);
+}
+#place .X-cloud {
+  position: relative;
+  left: 300px;
+  top: -195px;
+}
+#place .x-cloud {
+  position: relative;
+  right: -100px;
+  bottom: 150px;
+  z-index: 2;
+}
+
+/* -- Mise en place des différents besoin pour établir un menu burger -- */
+/* -- Sources Youtube - W3 school -- */
+/* -- Block de menu de navigation pour menu burger " Fleurs d'orangers & chats errants " -- */
+.main-navigation .navigation-burger {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 5rem;
+  width: 100%;
+}
+.main-navigation .navigation-burger .site-title {
+  font-size: 21.5px;
+}
+.main-navigation .navigation-burger a {
+  width: 90%;
+  text-align: left;
+  padding-left: 550px;
+}
+.main-navigation .navigation-burger button {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+  width: 10%;
+  height: 80px;
+  margin-right: 140px;
+  gap: 3px;
+}
+.main-navigation .navigation-burger button .line {
+  width: 2.5rem;
+  height: 2px;
+}
+
+/* -- Transformation Bouton 3 lignes en Croix -- */
+.menu-burger {
+  cursor: pointer;
+  position: relative;
+}
+.menu-burger #span1,
+.menu-burger #span2 {
+  transform: translate3d(0px, 0px, 0);
+  transform-origin: center;
+  transition: all 0.3s ease-in-out;
+}
+.menu-burger #span3 {
+  transform: translate3d(0px, 0px, 0);
+  transition: all 0.3s ease-in-out;
+}
+.menu-burger.active #span1 {
+  transform: translate3d(24px, 9px, 0) rotate(45deg);
+}
+.menu-burger.active #span2 {
+  opacity: 0;
+}
+.menu-burger.active #span3 {
+  transform: translate3d(24px, -9px, 0) rotate(-45deg);
+}
+
+/* -- CSS menu burger fullscreen -- */
+.main-navigation #menu .logo-menu {
+  display: block;
+  align-self: center;
+  width: 154px !important;
+  height: 95.4px !important;
+  margin-top: 2.74rem;
+  margin-bottom: 4.3rem;
+  animation: float 9s ease-in-out infinite;
+}
+.main-navigation #menu ul {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  list-style: none;
+  gap: 3.5rem;
+  line-height: 1;
+  margin-top: 0rem;
+  margin-bottom: 0rem;
+  animation: fadeinUpSections 2s;
+}
+.main-navigation #menu li {
+  position: relative;
+  font-size: 3rem;
+}
+.main-navigation #menu li :hover {
+  font-weight: bold;
+  text-shadow: 0 0 10px orange;
+}
+.main-navigation #menu a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+.main-navigation #menu .footer__burger {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 11rem;
+  margin-bottom: 2.49rem;
+  text-decoration: none;
+}
+
+.main-navigation.toggled ul {
+  display: flex !important;
+}
+
+/* -- Décorations et animation menu burger fullscreen -- */
+#menu {
+  display: none;
+  overflow: hidden;
+  background-color: #FFF5E9;
+}
+#menu::before {
+  content: url("./assets/images/Orchid.png");
+  position: absolute;
+  margin-left: -65px;
+  margin-top: 72px;
+  animation: rotate 15s infinite linear;
+  transform-origin: 50.1% 47.8%;
+}
+#menu ul li:nth-child(1)::before {
+  content: "";
+  position: absolute;
+  background-image: url("./assets/images/blue-cat.png");
+  width: 109.22px;
+  height: 98.63px;
+  background-size: contain;
+  right: 30rem;
+  bottom: 0rem;
+  animation: float 8s ease-in-out infinite;
+}
+#menu ul li:nth-child(1)::after {
+  content: url("./assets/images/Sunflower.png");
+  position: absolute;
+  margin-left: 500px;
+  margin-top: -120px;
+  animation: rotate 15s infinite linear;
+  transform-origin: 49.5% 44%;
+}
+#menu ul li:nth-child(2)::before {
+  content: "";
+  position: absolute;
+  background-image: url("./assets/images/flower.png");
+  width: 70px;
+  height: 70px;
+  background-size: contain;
+  margin-left: -315px;
+  margin-top: 120px;
+  animation: rotate 15s infinite linear;
+  transform-origin: 50.1% 40.8%;
+}
+#menu ul li:nth-child(2)::after {
+  content: "";
+  position: absolute;
+  background-image: url("./assets/images/random_flower.png");
+  width: 75px;
+  height: 75px;
+  margin-left: 817px;
+  background-size: contain;
+  animation: rotate 15s infinite linear;
+  transform-origin: 50.1% 44.8%;
+}
+#menu ul li:nth-child(3)::before {
+  content: url("./assets/images/orange-cat.png");
+  position: absolute;
+  margin-left: -570px;
+  margin-top: 180px;
+  animation: float 7s ease-in-out infinite;
+}
+#menu ul li:nth-child(3)::after {
+  content: url("./assets/images/black-cat.png");
+  position: absolute;
+  margin-left: 415px;
+  margin-top: -100px;
+  animation: float 9s ease-in-out infinite;
+}
+#menu ul li:nth-child(4)::after {
+  content: "";
+  position: absolute;
+  width: 39.12rem;
+  height: 39.12rem;
+  background-image: url("./assets/images/Hibiscus.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin-left: 620px;
+  margin-top: -40px;
+  animation: rotate 15s infinite linear;
+}
+
+#menu.visible {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  align-content: flex-start;
+  height: 90vh;
+  animation: fadeInDown 3s ease forwards;
+}
+
+main.desactive {
+  display: none;
+}
+
+footer.desactive {
+  display: none;
+}
+
+/* -- Media query -- */
+/* -- Ajustement contenu format laptop -- */
+@media (max-width: 1025px) {
+  .main-navigation .navigation-burger a {
+    padding-left: 350px;
+  }
+  .story h2::before {
+    z-index: 1;
+    top: 200px;
+    opacity: 0.25;
+  }
+  .story h2::after {
+    z-index: 2;
+    top: 450px;
+  }
+  .story__article {
+    z-index: 0;
+  }
+  .story__article::before {
+    top: 155px;
+    opacity: 0.25;
+  }
+  .story__article::after {
+    top: 50px;
+  }
+  .mySwiper .swiper-slide {
+    width: 33%;
+  }
+  #menu ul li:nth-child(1)::before {
+    right: 20rem;
+  }
+  #menu ul li:nth-child(1)::after {
+    margin-left: 300px;
+  }
+  #menu ul li:nth-child(2)::after {
+    margin-left: 615px;
+  }
+  #menu ul li:nth-child(3)::after {
+    margin-left: 275px;
+  }
+  #menu ul li:nth-child(3)::before {
+    margin-left: -350px;
+  }
+  #menu ul li:nth-child(4)::after {
+    margin-left: 450px;
+  }
+  .story__article p {
+    padding-right: 20px;
+  }
+  .story #characters div {
+    padding-left: 0px;
+  }
+  #place {
+    overflow: hidden;
+  }
+  #studio > div::before {
+    margin-top: 5px;
+  }
+  .nomination {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: flex-start;
+  }
+  .nomination .nomination__bloc {
+    margin-left: 25px;
+  }
+  .nomination .nomination__logo {
+    margin-right: 450px;
+  }
+  .nomination::before {
+    top: -50px;
+    opacity: 0.55;
+  }
+  .nomination::after {
+    margin-right: 400px;
+  }
+}
+/* Ajustement contenu format tablette */
+@media (max-width: 769px) {
+  .main-navigation .navigation-burger a {
+    padding-left: 150px;
+  }
+  #menu ul li:nth-child(1)::before {
+    right: 15rem;
+    bottom: -6rem;
+  }
+  #menu ul li:nth-child(2)::before {
+    margin-left: -150px;
+  }
+  #menu ul li:nth-child(2)::after {
+    margin-left: 475px;
+  }
+  #menu ul li:nth-child(3)::after {
+    margin-top: -100px;
+    margin-left: 200px;
+  }
+  #menu ul li:nth-child(4)::after {
+    margin-left: 250px;
+  }
+  .banner__video {
+    display: none;
+  }
+  .story h2::before {
+    content: url("./assets/images/sunflower_leaves.png");
+    z-index: 1;
+    top: 10px;
+    opacity: 0.25;
+  }
+  .story h2::after {
+    content: url("./assets/images/Sunflower.png");
+    z-index: 2;
+    left: 42px;
+    opacity: 0.25;
+  }
+  .story__article {
+    z-index: 0;
+  }
+  .story__article::before {
+    content: url("./assets/images/hibiscus_leaves.png");
+    z-index: -1;
+    top: 100px;
+    left: 135px;
+    opacity: 0.25;
+  }
+  .story__article::after {
+    content: url("./assets/images/Hibiscus.png");
+    z-index: -1;
+    top: 10px;
+    left: 550px;
+    opacity: 0.25;
+  }
+  #place {
+    height: 300px;
+  }
+  .story #place > div {
+    height: 300px;
+  }
+  .story__place--clouds {
+    height: 300px;
+  }
+  .story #place h3 {
+    font-size: 1.5rem;
+    margin-bottom: 6rem;
+  }
+  .story__article {
+    width: 500px;
+  }
+  .story #place > div p {
+    margin-left: 15rem;
+    margin-top: -10rem;
+    margin-bottom: 22rem;
+    width: 50%;
+  }
+  p:not(.nomination__bloc) {
+    font-size: 0.75rem;
+  }
+  .mySwiper .swiper-slide {
+    width: 33%;
+    height: auto;
+  }
+  #studio h2::before {
+    left: -7.75rem;
+  }
+  #studio > div::before {
+    z-index: -1;
+    opacity: 0.5;
+    top: 20%;
+  }
+  .nomination__bloc::before {
+    background-size: 80%;
+    top: -30px;
+  }
+  .nomination {
+    align-content: flex-start;
+  }
+  .nomination .nomination__bloc {
+    font-size: 2rem;
+    margin-left: 0.5rem;
+  }
+  .nomination .nomination__logo {
+    margin-right: 200px;
+  }
+  .nomination::before {
+    opacity: 0.55;
+  }
+  .nomination::after {
+    margin-left: 0px;
+    margin-right: 650px;
+  }
+}
+/* Ajustement contenu format mobile */
+/* Désactivation de .banner__video en format mobile */
+@media (max-width: 425px) {
+  .banner {
+    background-image: url("./assets/images/banner.png");
+    min-height: 500px;
+  }
+  .banner .banner__video {
+    display: none;
+  }
+}/*# sourceMappingURL=style.css.map */
